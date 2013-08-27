@@ -1,0 +1,11 @@
+{
+	"code": [
+		"NativeText.h",
+		"NativeText.mm"
+	],
+	"frameworks": [
+		"UIKit",
+		"Foundation",
+		"CoreGraphics"
+	]
+}
