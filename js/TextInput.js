@@ -27,6 +27,8 @@ exports = Class(TextView, function (supr) {
 		var keyboard = opts.keyboard === undefined ? "DEFAULT" : opts.keyboard;
 		this.setKeyboard(keyboard);
 		
+		this._showHighlight = opts.showHighlight === undefined ? true : opts.showHighlight;
+		
 		this.txtBG = new View({
 			width: this.style.width,
 			height: this.style.height,
@@ -103,7 +105,10 @@ exports = Class(TextView, function (supr) {
 			console.log("{nativeText} Keyboard Shown JS return");
 			var currentTextInputPosition = currentTextInput.getPosition();
 			var keyboardHeight = e.keyboardHeight*2/GC.app.gameConfig.scaleFactor;
-			currentTextInput.txtBG.show();
+			if(currentTextInput._showHighlight === true) {
+				currentTextInput.txtBG.show();
+			}
+			
 			//console.log("{Text Pos.y}"+currentTextInputPosition.y);
 			//console.log("{Text Pos.height}"+currentTextInputPosition.height);
 			//console.log("{Top View.height}"+GC.app.view.style.height);
